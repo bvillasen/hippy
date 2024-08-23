@@ -18,7 +18,7 @@ Load it into python using `cdll` and call the HIP functions.
 
 ## Examples
 
-### Daxpy
+### DAXPY
 
 Simple example showing usage of basic GPU functionality and running a DAXPY kernel on the CPU and on the GPU.
 
