@@ -19,14 +19,20 @@ device_x = gpu_array( np_arr=host_x )
 device_y = gpu_array( np_arr=host_y )
 
 # Execute CPU daxpy
+hip.roctx_push( 'daxpy_cpu')
 result_cpu = A * host_x + host_y
+hip.roctx_pop()
 
 # Execute GPU daxpy
+hip.roctx_push( 'daxpy_gpu')
 hip.gpu_daxpy( device_x, device_y, A )
+hip.roctx_pop()
 
+hip.roctx_push( 'copy_result')
 result_gpu = np.zeros_like( result_cpu )
 device_y.copy_to_host( result_gpu )
 hip.synchronize_device()
+hip.roctx_pop()
 
 #Validate
 diff = np.abs( result_gpu - result_cpu )
