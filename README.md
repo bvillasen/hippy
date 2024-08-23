@@ -35,6 +35,8 @@ A version of the DAXPY example with some ROCTx markers, to run use:
 rocprof --roctx-trace python gpu_daxpy_roctx.py
 ```
 
+then visualize the `results.json` file in [Perfetto](https://ui.perfetto.dev/)
+
 
 
 
