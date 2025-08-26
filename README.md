@@ -38,6 +38,13 @@ rocprof --roctx-trace python gpu_daxpy_roctx.py
 then visualize the `results.json` file in [Perfetto](https://ui.perfetto.dev/)
 
 
+### Profiling only a region of the application
+
+
+```
+rocprof --sys-trace --roctx-trace --trace-start off --roctx-trace python gpu_daxpy_roctx_region.py
+```
+
 
 
 
